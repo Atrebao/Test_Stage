@@ -42,7 +42,6 @@ else{
 <body>
    
     <div class="container">
-    <button class="btn" id="btn1"></button>
         <div class="row">
             <div class="col l3 m3 s12"></div>
             <div class="col l6 m6 s12">

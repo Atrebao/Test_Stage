@@ -1,13 +1,26 @@
+/* index.php */
+table{
+    border: 3px solid black;
+}
+
+thead{
+    background-color: teal;
+}
+
+thead tr {
+    border-collapse: collapse;
+}
+
+
+/*  */
 .l8{
     transform: translateY(20%);
 }
 
-
-
 /* Preference */
 
 .preference{
-    transform: translateY(15rem);
+    transform: translateY(10rem);
 }
 
 .title-pref{
@@ -20,7 +33,9 @@
 
 /* profile */
 
-
+.nav-profile{
+    background-color: teal;
+}
 
 .infos{
     width: 100%;
@@ -40,7 +55,7 @@
 }
 .card-image{
     width: 50%;
-   background-color: beige;
+   background-color: teal;
    padding: 0px 3rem;
 }
 
@@ -51,7 +66,7 @@
     
 }
 .form-edit{
-    margin: 30px auto;
+    margin: 25px auto;
 }
 .modal{
     width: 50%;

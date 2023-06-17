@@ -45,9 +45,14 @@ if (isset($_POST["submit"])) {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<nav>
+<?php
+    $sql = "SELECT * FROM `user` WHERE id = $id LIMIT 1";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+    ?>
+<nav class="nav-profile">
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo center">Bienvenue <?php echo $_SESSION["nom"] ?></a>
+      <a href="#" class="brand-logo center">Bienvenue <?php echo $row["Nom"] ?></a>
     </div>
     
 
@@ -70,11 +75,7 @@ if (isset($_POST["submit"])) {
 </nav>
 
   <!--  -->
-  <?php
-    $sql = "SELECT * FROM `user` WHERE id = $id LIMIT 1";
-    $result = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_assoc($result);
-    ?>
+
     <div class="row"></div>
     <div class="container">
         <div class="row">
@@ -82,7 +83,7 @@ if (isset($_POST["submit"])) {
             <div class="col l8 m6">
                 <div class="card horizontal profile">
                     <div class="card-image">
-                        <a  href="#login" class="modal-trigger"><img class="pp" style="width: 100px ; height: 100px;" src="C:\Users\HP\Pictures\Saved Pictures\R (1).jfif" alt=""></a>
+                        <a  href="#login" class="modal-trigger"><img class="pp" style="width: 100px ; height: 100px;" src="C:/Users/HP/Pictures/Saved Pictures/R.jfif" alt="Cliquez sur la photo pour editer votre profile"></a>
 
                     </div>
                     <div class="card-stacked ">
@@ -136,19 +137,19 @@ if (isset($_POST["submit"])) {
                             <h5 class="center" >Modifier</h5>
                             <div class="input-field">
                                 <i class="material-icons prefix">account_circle</i>
-                                <input type="text" name="nom" id="nom" value = "<?php echo $_SESSION["nom"]; ?>">
+                                <input type="text" name="nom" id="nom" value = "<?php echo $row["Nom"]; ?>">
                                 <label >Entrer le nom</label>
                             </div>
 
                             <div class="input-field">
                                 <i class="material-icons prefix">account_circle</i>
-                                <input type="text" name="prenom" id="prenom" value = "<?php echo $_SESSION["prenom"]; ?>">
+                                <input type="text" name="prenom" id="prenom" value = "<?php echo $row["Prenom"]; ?>">
                                 <label >Entrer le prenom</label>
                             </div>
 
                             <div class="input-field">
                                 <i class="material-icons prefix">local_phone</i>
-                                <input type="tel" name="telephone" id="telephone" value = "<?php echo $_SESSION["telephone"]; ?>">
+                                <input type="tel" name="telephone" id="telephone" value = "<?php echo $row["Telephone"]; ?>">
                                 <label >Entrer le numero de telephne</label>
                             </div>
 
@@ -158,7 +159,7 @@ if (isset($_POST["submit"])) {
                                   <input type="file" multiple>
                                 </div>
                                 <div class="file-path-wrapper">
-                                  <input class="file-path validate" name="photo" type="text" placeholder="Upload la photo" value = "<?php echo $_SESSION["photo"]; ?>">
+                                  <input class="file-path validate" name="photo" type="text" placeholder="Upload la photo" value = "<?php echo $row["Photo"]; ?>">
                                 </div>
                               </div>
                               <!--
@@ -178,7 +179,7 @@ if (isset($_POST["submit"])) {
 
                         </div>
                     </form>
-                    <a href="deconnexion.php">Deconnexion</a>
+                    
                 </div>
           </div>
 

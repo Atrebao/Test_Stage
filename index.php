@@ -2,21 +2,24 @@
 session_start();
 include "db_conn.php";
 
-if (!isset($_SESSION['authenticated'])) {
-  // Redirection vers la page d'authentification si l'utilisateur n'est pas authentifié
-  header('Location: connection.php');
-  exit;
-}
-else{
-  echo $_SESSION['authenticated'];
-  echo $_SESSION['nom'];
-}
+    if (!isset($_SESSION['authenticated'])) {
+      // Redirection vers la page d'authentification si l'utilisateur n'est pas authentifié
+      header('Location: connection.php');
+      exit;
+    }
+    else{
+      //echo $_SESSION['authenticated'];
+      echo $_SESSION['id'];
+    }
 
-if (!isset($_SESSION['authenticated'])) {
-  // Redirection vers la page d'authentification si l'utilisateur n'est pas authentifié
-  header('Location: authentification.php');
-  exit;
-}
+    if (!isset($_SESSION['authenticated'])) {
+      // Redirection vers la page d'authentification si l'utilisateur n'est pas authentifié
+      header('Location: authentification.php');
+      exit;
+    }
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,6 +28,7 @@ if (!isset($_SESSION['authenticated'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Informations</title>
+    <link rel="stylesheet" href="style.css">
             <!-- Compiled and minified CSS -->
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">

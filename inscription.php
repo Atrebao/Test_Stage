@@ -10,6 +10,29 @@ if (isset($_POST["submit"])) {
    $telephone = $_POST['telephone'];
    $photo = $_POST['photo'];
 
+/*
+   if($_FILES['photo']['error']>0){
+    echo "Une erreur est survenue lors du transfert";
+    die;
+  }
+  else{
+    $validExt = array('.jpg', '.png', '.gif', '.jpeg');
+    $filesSize = $_FILES['photo']['size'];
+    $fileExt = ".". strtolower(substr(strrchr($_FILES['photo']['name'],'.'),1));
+    if(!in_array($fileExt,$validExt)){
+        echo "Ce fichier n'est pas une image";
+        die;
+    }
+    $filename = $_FILES['photo']['name'];
+    $tempname = $_FILES['photo']['tmp_name'];
+    //move_uploaded_file($tempname, $filename);
+
+    $folder = "images/".$filename;
+    move_uploaded_file($tempname, $folder);
+  }
+*/
+
+  
 
    $sql = "INSERT INTO `user`(`id`, `Nom`, `Prenom`, `Telephone`, `Photo`) VALUES (NULL,'$nom','$prenom','$telephone','$photo')";
 
@@ -41,7 +64,7 @@ if (isset($_POST["submit"])) {
         <div class="row">
             <div class="col l3 m3 s12"></div>
             <div class="col l6 m6 s12">
-                <form action="" method="post">
+                <form action="" method="post" enctype="multipart/form-data">
                     <div class="card-panel z_depth-5">
                         <h5 class="center" >Inscription</h5>
                         <div class="input-field">
@@ -68,7 +91,8 @@ if (isset($_POST["submit"])) {
                               <input type="file" multiple>
                             </div>
                             <div class="file-path-wrapper">
-                              <input class="file-path validate" name="photo" type="text" placeholder="Upload la photo">
+                                
+                             <input class="file-path validate" name="photo" type="text" placeholder="Upload la photo">
                             </div>
                           </div>
 
