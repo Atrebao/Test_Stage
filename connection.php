@@ -4,8 +4,8 @@ include "db_conn.php";
 
 
 
-    if(isset($_POST['submit'])){
-        $_SESSION['authenticated'] ;
+    if(isset($_POST['submit']) && !empty($_POST['telephone'])){
+        $_SESSION['authenticated'] =true ;
         echo "ok";
         $telephone = $_POST['telephone'];
         
@@ -15,11 +15,6 @@ include "db_conn.php";
             
             while ($row = mysqli_fetch_assoc($result)){
                 $_SESSION['id'] = $row['id'];
-                $_SESSION['nom'] = $row['Nom'];
-                $_SESSION['prenom'] = $row['Prenom'];
-                $_SESSION['telephone'] = $row['Telephone'];
-                $_SESSION['preference'] = $row['Preference'];
-                $_SESSION['photo'] = $row['Photo'];
 
                 header("Location:profile.php");
 

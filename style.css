@@ -50,7 +50,9 @@
     border-radius: 30px;
     
 }
-
+.form-edit{
+    margin: 30px auto;
+}
 .modal{
     width: 50%;
     background-color: teal;

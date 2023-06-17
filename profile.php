@@ -8,6 +8,7 @@ if (!isset($_SESSION['authenticated'])) {
   exit;
 }
 
+
 $id = $_SESSION["id"];
 
 if (isset($_POST["submit"])) {
@@ -27,6 +28,8 @@ if (isset($_POST["submit"])) {
     echo "Failed: " . mysqli_error($conn);
   }
 }
+
+
 
 ?>
 <!DOCTYPE html>
@@ -67,6 +70,11 @@ if (isset($_POST["submit"])) {
 </nav>
 
   <!--  -->
+  <?php
+    $sql = "SELECT * FROM `user` WHERE id = $id LIMIT 1";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+    ?>
     <div class="row"></div>
     <div class="container">
         <div class="row">
@@ -82,25 +90,25 @@ if (isset($_POST["submit"])) {
                           <div class="infos">
                             <div class="info">
                               <h5>Nom :</h5>
-                              <p><?php echo $_SESSION["nom"]; ?></p>
+                              <p><?php echo $row['Nom']; ?></p>
                             </div>
                             <br>
 
                             <div class="info">
                               <h5>Prenoms :</h5>
-                              <p> <?php echo " ". $_SESSION["prenom"]; ?></p>
+                              <p> <?php echo $row['Prenom']; ?></p>
                             </div>
                             <br>
 
                             <div class="info">
                               <h5>Telephone : </h5>
-                              <p> <?php echo $_SESSION["telephone"]; ?></p>
+                              <p> <?php echo $row['Telephone']; ?></p>
                             </div>
                             <br>
 
                             <div class="info">
                               <h5>Preference :</h5>
-                              <p><?php echo $_SESSION["preference"]; ?></p>
+                              <p><?php echo $row['Preference']; ?></p>
                             </div>
                             <br>
 
@@ -123,7 +131,7 @@ if (isset($_POST["submit"])) {
             <div class="row">
                 <div class="col l3 m2 s12"></div>
                 <div class="col l6 m8 " >
-                    <form action="" method="post">
+                    <form action="" method="post" class="form-edit">
                         <div class="card-panel z_depth-5">
                             <h5 class="center" >Modifier</h5>
                             <div class="input-field">
@@ -162,14 +170,15 @@ if (isset($_POST["submit"])) {
                                 -->
                                     <div class="container footer">
                                 
-                                        <input type="submit" name="submit" value="login" class="btn pulse">
-                                          <input type="button"  value="close" class="btn modal-close red">
+                                        <input type="submit" name="submit" value="Editer" class="btn pulse">
+                                          <input type="button"  value="Fermer" class="btn modal-close red">
                                       </div>
                                 
                                  
 
                         </div>
                     </form>
+                    <a href="deconnexion.php">Deconnexion</a>
                 </div>
           </div>
 
