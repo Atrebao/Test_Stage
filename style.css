@@ -1,0 +1,61 @@
+.l8{
+    transform: translateY(20%);
+}
+
+
+
+/* Preference */
+
+.preference{
+    transform: translateY(15rem);
+}
+
+.title-pref{
+ margin-bottom: 3rem;
+}
+
+.check{
+   margin: 0px 5px 0px 5rem;
+}
+
+/* profile */
+
+
+
+.infos{
+    width: 100%;
+    height: 70%;
+    margin: 10px auto;   
+}
+
+.infos p{
+    font-weight: bold;
+    font-size: 18px;
+    
+}
+
+.info{
+    display: flex;
+    align-items: first baseline;
+}
+.card-image{
+    width: 50%;
+   background-color: beige;
+   padding: 0px 3rem;
+}
+
+.pp{
+    display: block;
+    margin:  10rem auto;
+    border-radius: 30px;
+    
+}
+
+.modal{
+    width: 50%;
+    background-color: teal;
+}
+.footer{
+    margin-top: 30px;
+}
+
